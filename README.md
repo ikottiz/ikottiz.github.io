@@ -5,3 +5,5 @@
 * [cat.png](https://ikottiz.github.io/cat.png)
 * [averagejapan](https://ikottiz.github.io/averagejapan)
 * [doi](https://ikottiz.github.io/doi)
+* [uhoh](https://ikottiz.github.io/uhoh)
+* [brainfuck](https://ikottiz.github.io/brainfuck)
