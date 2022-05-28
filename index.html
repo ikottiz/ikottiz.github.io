@@ -13,75 +13,16 @@
 </head>
 
 <body>
-    <div id="particles-js"></div>
-    <script type="text/javascript" src="particles.js"></script>
-    <script type="text/javascript" src="app.js"></script>
-    
     <div id="main" class="center">
         <div id="overlay" onclick="music.play(); addStuff();"><span class="header center" id="status_text"></span></div>
     </div>
     <script>
-        function handleAnimations() {
-            let animations = [
-                ["bounce", "bounce"],
-                ["flash", "flash"],
-                ["pulse", "pulse"],
-                ["shake", "shake"],
-                ["headShake", "headShake"],
-                ["swing", "swing"],
-                ["tada", "tada"],
-                ["wobble", "wobble"],
-                ["jello", "jello"],
-                ["heartBeat", "heartBeat"],
-                ["bounceIn", "bounceIn"],
-                ["bounceInDown", "bounceInUp"],
-                ["bounceInLeft", "bounceInRight"],
-                ["fadeIn", "fadeIn"],
-                ["fadeInDown", "fadeInUp"],
-                ["fadeInLeft", "fadeInRight"],
-                ["flip", "flip"],
-                ["flipInX", "flipInX"],
-                ["flipInY", "flipInY"],
-                ["rotateIn", "rotateIn"],
-                ["rotateInDownLeft", "rotateInDownRight"],
-                ["slideInDown", "slideInUp"],
-                ["slideInLeft", "slideInRight"],
-                ["zoomIn", "zoomIn"],
-                ["zoomInDown", "zoomInUp"],
-                ["zoomInLeft", "zoomInRight"],
-                ["jackInTheBox", "jackInTheBox"],
-            ];
-
-            var num = getRandomInt(animations.length);
-
-            animateCSS('[name="top"]', animations[num][0], animationOver);
-            animateCSS('[name="bottom"]', animations[num][1], animationOver);
-            console.log("top: " + animations[num][0]);
-            console.log("bottom: " + animations[num][1]);
-        }
-
         function addStuff() {
             at("main").innerHTML =
                 `<h1 name="top"    id = "status_text" class="header animated"><a href="index.html"><font color='#FFFFFF'>gay</font><font color='#FFA500'>porn</font><font color='#FFFFFF'>.com</font></a></h1>
                             <p  name="bottom" id = "text2" class="textiboi animated">i skidded this website</p>`;
 
 
-            handleAnimations();
-        }
-
-        function animateCSS(element, animationName, callback) {
-            const node = document.querySelector(element)
-            node.classList.add('animated', animationName)
-            node.classList.add('delay-2s')
-
-            function handleAnimationEnd() {
-                node.classList.remove('animated', animationName)
-                node.removeEventListener('animationend', handleAnimationEnd)
-
-                if (typeof callback === 'function') callback()
-            }
-
-            node.addEventListener('animationend', handleAnimationEnd)
         }
 
         function getRandomInt(max) {
