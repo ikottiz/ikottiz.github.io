@@ -9,9 +9,7 @@
         <audio id="music" src="msc.mp3" autoplay loop onplaying="" style="display: none;"></audio>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="animate.css">
 </head>
-
 <body>
     <div id="main" class="center">
         <div id="overlay" onclick="music.play(); addStuff();"><span class="header center" id="status_text"></span></div>
@@ -20,60 +18,9 @@
         function addStuff() {
             at("main").innerHTML =
                 `</a></h1>
-                            <p  name="bottom" id = "text2" class="textiboi animated">i skidded this website</p>`;
-
-
+                            <p  name="bottom" id = "text2" class="textiboi animated">lol</p>`;
         }
-
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        var at = document.getElementById.bind(document);
-        window.addEventListener("DOMContentLoaded", () => {
-            at("status_text").innerHTML = "loading";
-
         });
-
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                if (!window.music.paused) {
-                    addStuff();
-                    console.log("music already started");
-                    return;
-                }
-                at("status_text").innerHTML = "click to enter";
-                at("status_text").classList.add("begin");
-
-            }, 100);
-        });
-
-        var temp = 0
-
-        function animationOver() {
-            temp++;
-
-            if (temp != 2)
-                return;
-
-            setTimeout(function() {
-                console.log("animations over");
-                var doc = document.getElementById("main");
-                var inner = doc.innerHTML;
-                // WOW this is aids.
-
-                doc.innerHTML +=
-                    `<div class="textiboi">
-                <a id="typElement"></a></div>
-                <div class="textiboi">
-				<a class="textiboi animated fadeIn"  href="ikottiz.github.io/1>idk</a>`;
-                console.log("running typewrite");
-                indefiniteWrite();
-
-            }, 550);
-
-        }
-
-
     </script>
 </body>
 </html>
