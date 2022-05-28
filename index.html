@@ -19,7 +19,7 @@
     <script>
         function addStuff() {
             at("main").innerHTML =
-                `<h1 name="top"    id = "status_text" class="header animated"><a href="index.html"><font color='#FFFFFF'>gay</font><font color='#FFA500'>porn</font><font color='#FFFFFF'>.com</font></a></h1>
+                `</a></h1>
                             <p  name="bottom" id = "text2" class="textiboi animated">i skidded this website</p>`;
 
 
@@ -65,7 +65,7 @@
                     `<div class="textiboi">
                 <a id="typElement"></a></div>
                 <div class="textiboi">
-				<a class="textiboi animated fadeIn"  href="ikottiz.github.io/memes/cat.png">idk</a>`;
+				<a class="textiboi animated fadeIn"  href="ikottiz.github.io/1>idk</a>`;
                 console.log("running typewrite");
                 indefiniteWrite();
 
@@ -73,30 +73,7 @@
 
         }
 
-        function indefiniteWrite() {
-            let strs = [
-                "balls",
-                "you can get memes on ikottiz.github.io/memes",
-		"pls buy me a synapse x pls pls",
-		"selling roguelineage script",
-		"lol"
-            ];
 
-            var num = getRandomInt(strs.length);
-
-            console.log("writing " + strs[num]);
-
-            var typElement = document.getElementById('typElement');
-
-            var typewriter = new Typewriter(typElement, {
-                loop: true
-            });
-
-            typewriter.typeString(strs[num]).pauseFor(5000).deleteAll().pauseFor(100).callFunction(() => {
-                typewriter.stop();
-                indefiniteWrite();
-            }).start();
-        }
     </script>
 </body>
 </html>
