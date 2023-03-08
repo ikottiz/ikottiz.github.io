@@ -11,7 +11,7 @@
 	<body style="background: linear-gradient(120deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%);">
 		<audio id="music" src="" autoplay="" loop="" onplaying="" style="display: none;"></audio>
 		<div id="main" class="center">
-		<div id="overlay" onclick="trigger1();play()" oncontextmenu="trigger2();play()"><span class="header center begin" id="status_text" style="
+		<div id="overlay" onclick="forward();play()" oncontextmenu="back();play()"><span class="header center begin" id="status_text" style="
     		position: fixed;
     		top: 50%;
     		left: 50%;
@@ -38,14 +38,14 @@
 				9: {name: "Olly - Glitch", url: "https://kottiz.s-ul.eu/vdXNZoUe"},
 			}
 			var playing = random
-			function trigger1() {
+			function forward() {
 				if (playing < 9) {
 				   playing = playing + 1
 				} else {
 				   playing = 0
 				} 
 			}
-			function trigger2() {
+			function back() {
 				if (playing > 0) {
 				   playing = playing - 1
 				} else {
