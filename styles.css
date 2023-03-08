@@ -1,3 +1,12 @@
 body {
-  background: linear-gradient(120deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%);
+	background: linear-gradient(120deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%);
+}
+p.status_text {
+	position: fixed;
+    	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    	text-align: center;
+    	color: #d7d4ff;
+    	font-family: system-ui;
 }
