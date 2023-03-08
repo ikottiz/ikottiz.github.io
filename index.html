@@ -11,15 +11,7 @@
 	<body class="body">
 		<audio id="music" src="" autoplay="" loop="" onplaying="" style="display: none;"></audio>
 		<div id="main" class="center">
-		<div id="overlay" onclick="next();play()" oncontextmenu="previous();play()"><span class="header center begin" id="status_text" style="
-    		position: fixed;
-    		top: 50%;
-    		left: 50%;
-    		transform: translate(-50%, -50%);
-    		text-align: center;
-    		color: #d7d4ff;
-    		font-family: system-ui;
-    	">click pls</span></div>
+		<p id="status_text" class="status_text" onclick="next();play()" oncontextmenu="previous();play()">click pls</p>
 		<script>
 			function getRandomInt(max) {
   				return Math.floor(Math.random() * max);
@@ -54,7 +46,6 @@
 			}
 			function play() {
 				const music = document.getElementById("music")
-				const status_text = document.getElementById("status_text")
 				music.src = urls[playing].url
 				status_text.innerHTML = "now playing: " + urls[playing].name
 				music.play()
