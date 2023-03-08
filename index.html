@@ -11,7 +11,7 @@
 	<body class="body">
 		<audio id="music" src="" autoplay="" loop="" onplaying="" style="display: none;"></audio>
 		<div id="main" class="center">
-		<p id="status_text" class="status_text" onclick="next();play()" oncontextmenu="previous();play()">click pls</p>
+		<p id="status_text" class="status_text" onclick="next();play()" oncontextmenu="previous();play();return false">click pls</p>
 		<script>
 			function getRandomInt(max) {
   				return Math.floor(Math.random() * max);
@@ -37,12 +37,12 @@
 				   playing = 0
 				} 
 			}
-			function previous() {
+			function previous(evt) {
 				if (playing > 0) {
 				   playing = playing - 1
 				} else {
 				   playing = 9
-				} 
+				}
 			}
 			function play() {
 				const music = document.getElementById("music")
