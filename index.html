@@ -11,7 +11,7 @@
 	<body style="background: linear-gradient(120deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%);">
 		<audio id="music" src="" autoplay="" loop="" onplaying="" style="display: none;"></audio>
 		<div id="main" class="center">
-		<div id="overlay" onclick="play()"><span class="header center begin" id="status_text" style="
+		<div id="overlay" onclick="trigger1();play()" oncontextmenu="trigger2();play()"><span class="header center begin" id="status_text" style="
     		position: fixed;
     		top: 50%;
     		left: 50%;
@@ -24,6 +24,7 @@
 			function getRandomInt(max) {
   				return Math.floor(Math.random() * max);
    			}
+			const random = getRandomInt(9)
 			const urls = {
 				0: {name: "bbno$ - Let em Know", url: "https://kottiz.s-ul.eu/q7Qgj44x"},
 				1: {name: "bbno$ - bag or die", url: "https://kottiz.s-ul.eu/zFCIDqVz"},
@@ -36,12 +37,26 @@
 				8: {name: "Radzvbov - Landscape", url: "https://kottiz.s-ul.eu/0yG01hNQ"},
 				9: {name: "Olly - Glitch", url: "https://kottiz.s-ul.eu/vdXNZoUe"},
 			}
+			var playing = random
+			function trigger1() {
+				if (playing < 9) {
+				   playing = playing + 1
+				} else {
+				   playing = 0
+				} 
+			}
+			function trigger2() {
+				if (playing > 0) {
+				   playing = playing - 1
+				} else {
+				   playing = 9
+				} 
+			}
 			function play() {
-		    const random = getRandomInt(9)
-			const music = document.getElementById("music")
-			const status_text = document.getElementById("status_text")
-				music.src = urls[random].url
-				status_text.innerHTML = "now playing: " + urls[random].name
+				const music = document.getElementById("music")
+				const status_text = document.getElementById("status_text")
+				music.src = urls[playing].url
+				status_text.innerHTML = "now playing: " + urls[playing].name
 				music.play()
 			}
 		</script>
