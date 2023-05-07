@@ -11,45 +11,10 @@
 	<body class="body" oncontextmenu="return false">
 		<audio id="music" src="" autoplay="" loop="" onplaying="" style="display: none;"></audio>
 		<div id="main" class="center">
+		<p id="volume" class="volume-slider" style="display: none;"><input min="0" max="100" value="100" type="range"></p>
+		<script src="music.js"></script>
 		<p id="status_text" class="status_text" onclick="next();play()" oncontextmenu="previous();play();return false">click pls</p>
-		<script>
-			function getRandomInt(max) {
-  				return Math.floor(Math.random() * max);
-   			}
-			const random = getRandomInt(9)
-			const urls = {
-				0: {name: "bbno$ - Let em Know", url: "https://kottiz.s-ul.eu/q7Qgj44x"},
-				1: {name: "bbno$ - bag or die", url: "https://kottiz.s-ul.eu/zFCIDqVz"},
-				2: {name: "bbno$ - Top Gun", url: "https://kottiz.s-ul.eu/In4RMezK"},
-				3: {name: "bbno$ - I see London I see France", url: "https://kottiz.s-ul.eu/z4txShEd"},
-				4: {name: "Benzz - Je Mapelle", url: "https://kottiz.s-ul.eu/5xnCY1Db"},
-				5: {name: "GXD IN HXLL,DI$COVXRED SXRF,EXXXYDIRTY - SPACE EXPERIENCE", url: "https://kottiz.s-ul.eu/c8CcQwcK"},
-				6: {name: "LXBERTY MXTION - Entropy", url: "https://kottiz.s-ul.eu/FpXs91n8"},
-				7: {name: "Maikubi, VOLT VISION - Take Me Home", url: "https://kottiz.s-ul.eu/T89tL7YC"},
-				8: {name: "Radzvbov - Landscape", url: "https://kottiz.s-ul.eu/0yG01hNQ"},
-				9: {name: "Olly - Glitch", url: "https://kottiz.s-ul.eu/vdXNZoUe"},
-			}
-			var playing = random
-			function next() {
-				if (playing < 9) {
-				   playing = playing + 1
-				} else {
-				   playing = 0
-				} 
-			}
-			function previous(evt) {
-				if (playing > 0) {
-				   playing = playing - 1
-				} else {
-				   playing = 9
-				}
-			}
-			function play() {
-				const music = document.getElementById("music")
-				music.src = urls[playing].url
-				status_text.innerHTML = "now playing: " + urls[playing].name
-				music.play()
-			}
-		</script>
+		<p id="next" class="next"></p>
+		<p id="previous" class="previous"></p>
 	</body>
 </html>
