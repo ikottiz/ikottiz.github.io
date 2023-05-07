@@ -1,6 +1,15 @@
 body {
 	background: linear-gradient(120deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%);
 }
+p.volume-slider {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #d7d4ff;
+    font-family: system-ui;
+}
 p.status_text {
 	position: fixed;
     	top: 50%;
@@ -9,4 +18,22 @@ p.status_text {
     	text-align: center;
     	color: #d7d4ff;
     	font-family: system-ui;
+}
+p.next {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #87878761;
+    font-family: system-ui;
+}
+p.previous {
+    position: fixed;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #87878761;
+    font-family: system-ui;
 }
