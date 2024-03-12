@@ -10,6 +10,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
+    height: 100vh; /* Set height to full viewport height */
 }
 
 .square {
