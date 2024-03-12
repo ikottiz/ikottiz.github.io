@@ -13,18 +13,10 @@ body {
     padding: 20px;
     border: 2px solid;
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Определение 4 колонок для всех размеров экрана */
+    grid-template-columns: repeat(4, minmax(20%px, 1fr)); /* 4 Columns */
     gap: 10px; /* Add gap between squares */
     justify-items: center; /* Center squares horizontally */
 }
-
-/* Media Queries for responsiveness */
-@media only scree {
-    .container {
-        grid-template-columns: repeat(1, minmax(150px, 1fr)); /* Изменение на одну колонку для устройств с шириной экрана меньше 600px */
-    }
-}
-
 .square {
     width: 100%; /* Ensure squares take up full width of grid cell */
     height: 150px;
