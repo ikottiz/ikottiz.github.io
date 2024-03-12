@@ -3,20 +3,31 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     background-color: #000000;
+    min-height: 100vh; /* Set body height to full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center horizontally */
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding: 20px;
-    height: 100vh; /* Set height to full viewport height */
+    border: 2px solid;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Определение 4 колонок для всех размеров экрана */
+    gap: 10px; /* Add gap between squares */
+    justify-items: center; /* Center squares horizontally */
+}
+
+/* Media Queries for responsiveness */
+@media only scree {
+    .container {
+        grid-template-columns: repeat(1, minmax(150px, 1fr)); /* Изменение на одну колонку для устройств с шириной экрана меньше 600px */
+    }
 }
 
 .square {
-    width: 150px;
+    width: 100%; /* Ensure squares take up full width of grid cell */
     height: 150px;
-    margin: 10px;
     background-color: #ffffff;
     border-radius: 10px;
     display: flex;
@@ -27,8 +38,8 @@ body {
 }
 
 .square a img {
-    width: 80px; /* Set fixed width for your icon */
-    height: 80px; /* Set fixed height for your icon */
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
 }
 
