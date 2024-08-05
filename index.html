@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Audio Visualizer</title>
     <style>
         body {
             background-color: #101010;
@@ -13,7 +13,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: 'Source Code Pro';
+            font-family: 'Source Code Pro', monospace;
             flex-direction: column;
             position: relative;
             overflow: hidden;
@@ -75,7 +75,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="clickText">*</div>
+    <div id="clickText">Click to Play</div>
     <pre id="visualizer"></pre>
     <div id="info">
         <div id="trackInfo"> - </div>
@@ -141,9 +141,11 @@
             analyser.getByteFrequencyData(dataArray);
 
             var bars = '';
+            var barLengthMultiplier = isMobile() ? 20 : 100;
+
             for (var i = 0; i < bufferLength; i++) {
                 var value = dataArray[i];
-                var barLength = Math.floor(value / 255 * 20);
+                var barLength = Math.floor(value / 255 * barLengthMultiplier);
                 bars += '|'.repeat(barLength) + '\n';
             }
 
@@ -153,6 +155,10 @@
         }
 
         draw();
+    }
+    function isMobile() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
     }
     </script>
 </body>
