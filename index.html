@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Visualizer</title>
+    <title><3</title>
     <style>
         body {
             background-color: #101010;
@@ -86,9 +86,8 @@
     <audio id="sound" src="sound.mp3" crossorigin="anonymous"></audio>
 
     <script>
-    var redirectUrl = "https://open.spotify.com/playlist/2y9ub4Wq3HvhU8rqG5YJTe";
-    var trackName = "We not like you";
-    var artistName = "Nettspend";
+    var trackName = "bigger thën everything";
+    var artistName = "Yeat";
 
     var audio = document.getElementById("sound");
     var clickText = document.getElementById("clickText");
@@ -105,10 +104,6 @@
         visualizer.style.display = 'block';
         document.getElementById("info").style.opacity = 1;
         setupVisualizer();
-    });
-    
-    audio.addEventListener("ended", function() {
-        window.location.href = redirectUrl;
     });
 
     audio.addEventListener("timeupdate", function() {
