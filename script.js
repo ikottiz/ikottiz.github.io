@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeInfo = document.getElementById("timeInfo");
     const progressBar = document.getElementById("progressBar");
 
-    const trackName = "bigger thën everything";
-    const artistName = "Yeat";
+    const trackName = "Be nice 2 me";
+    const artistName = "Bladee";
     trackInfo.textContent = `${trackName} - ${artistName}`;
 
     let scene, camera, renderer, bars = [];
