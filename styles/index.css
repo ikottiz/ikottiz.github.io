@@ -1,0 +1,343 @@
+body {
+    scroll-behavior: smooth;
+}
+
+/* Vignette override for index */
+body::after {
+    background: radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 7%;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/background.webp') no-repeat center center;
+    background-size: cover;
+    animation: kenburns 25s infinite alternate;
+    z-index: -2;
+}
+
+@keyframes kenburns {
+    from {
+        transform: scale(1) translate(0, 0);
+    }
+
+    to {
+        transform: scale(1.15) translate(-1%, -1%);
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 25%, transparent 75%),
+        linear-gradient(to top, var(--bg-color) 5%, transparent 35%);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 850px;
+    z-index: 10;
+    animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.series-logo {
+    width: 420px;
+    filter: drop-shadow(0 0 20px rgba(255, 203, 5, 0.4));
+    margin-bottom: 30px;
+}
+
+.hero-desc {
+    font-size: 24px;
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 1.7;
+    color: #efefef;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+.btn-watch {
+    display: inline-block;
+    background: transparent;
+    color: var(--vault-gold);
+    padding: 15px 40px;
+    border: 2px solid var(--vault-gold);
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 203, 5, 0.1);
+}
+
+.btn-watch:hover {
+    background: rgba(255, 203, 5, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 203, 5, 0.4);
+    color: var(--vault-gold);
+}
+
+/* Section Titles */
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.8rem;
+    margin: 100px 7% 50px;
+    color: var(--vault-gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 203, 5, 0.3);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Actors Grid */
+.actors-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 0 7% 80px;
+}
+
+.actor-card {
+    background: #0d141b;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+}
+
+.actor-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--vault-gold);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.actor-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2/3;
+}
+
+.actor-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.5s ease;
+}
+
+.actor-card:hover img {
+    transform: scale(1.05);
+}
+
+.actor-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Episodes List */
+.episodes-list {
+    padding: 0 7% 50px;
+}
+
+.episode-row {
+    display: flex;
+    gap: 45px;
+    padding: 45px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.ep-thumb {
+    position: relative;
+    width: 420px;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 203, 5, 0.9);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.play-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #000;
+    margin-left: 4px;
+}
+
+.episode-row:hover .play-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.episode-row:hover .ep-thumb img {
+    transform: scale(1.05);
+}
+
+.ep-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.episode-row:hover {
+    background: rgba(255, 255, 255, 0.03);
+    transform: scale(1.01) translateX(15px);
+}
+
+.ep-text h3 {
+    font-size: 26px;
+    margin-bottom: 12px;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.ep-meta {
+    font-size: 13px;
+    color: var(--prime-blue);
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ep-desc {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.8;
+    max-width: 950px;
+}
+
+/* Footer Specific Styles */
+footer {
+    padding: 20px 7% 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-logo {
+    height: 30px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    filter: brightness(0) invert(1);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--prime-blue);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.copyright {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1300px) {
+    .cast-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .episode-row {
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px 15px;
+    }
+
+    .ep-thumb {
+        width: 100%;
+    }
+
+    .series-logo {
+        width: 80%;
+    }
+}

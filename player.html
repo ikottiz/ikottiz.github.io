@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fallout | Смотреть онлайн</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/player.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+            </svg>
+            На главную
+        </a>
+        <img src="assets/fallout.png" class="header-logo" alt="Fallout">
+    </header>
+
+    <main class="player-container">
+
+        <div class="episode-number">Сезон 1 · Эпизод <span id="ep-num">1</span></div>
+        <h1 class="episode-title" id="ep-title">Загрузка...</h1>
+
+        <div class="video-wrapper">
+            <div id="real-player-container">
+                <video id="video-player" controls preload="auto"></video>
+            </div>
+            <div class="custom-overlay" id="custom-overlay" onclick="startPlayer()">
+                <div class="scanlines"></div>
+                <div class="play-btn-wrapper">
+                    <div class="play-button-large">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg>
+                    </div>
+                </div>
+                <img src="assets/background.webp" class="overlay-bg" id="overlay-bg-img" alt="Cover">
+            </div>
+        </div>
+
+        <div id="status-msg"></div>
+
+        <div class="episode-info">
+
+
+            <div class="voice-section">
+                <div class="voice-header">ДОСТУПНЫЕ ОЗВУЧКИ:</div>
+                <div id="variant-list" class="variant-grid"></div>
+            </div>
+
+            <div class="episode-meta">
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    <span>Режиссёр: Джонатан Нолан</span>
+                </div>
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                    </svg>
+                    <span id="ep-duration">1 ч 14 мин</span>
+                </div>
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                    </svg>
+                    <span>2024</span>
+                </div>
+            </div>
+            <p class="episode-description" id="ep-desc">
+                В 2077 году актер Купер Ховард оказывается в эпицентре ядерной атаки на Лос-Анджелес. 219 лет спустя
+                обитательница Убежища 33 Люси Маклин добровольно соглашается на брак с обитателем Убежища 32. После
+                свадьбы выясняется, что роль жителей Убежища 32 исполняли рейдеры под предводительством Ли Молдавер.
+                После битвы рейдеры забирают с собой смотрителя Убежища 33, отца Люси — Хэнка Маклина. Люси решает тайно
+                подняться на поверхность, чтобы найти своего отца.
+            </p>
+        </div>
+
+        <div class="episode-nav">
+            <a href="#" class="nav-btn prev disabled" id="prev-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+                <div>
+                    <div class="nav-label">Предыдущий</div>
+                    <div class="nav-title" id="prev-title">—</div>
+                </div>
+            </a>
+            <a href="#" class="nav-btn next" id="next-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                </svg>
+                <div>
+                    <div class="nav-label">Следующий</div>
+                    <div class="nav-title" id="next-title">Цель (The Target)</div>
+                </div>
+            </a>
+        </div>
+
+        <section class="episodes-section">
+            <h2 class="section-header">Все эпизоды</h2>
+            <div class="episodes-grid" id="episodes-grid"></div>
+        </section>
+    </main>
+
+    <footer class="reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Fallout_television_series_logo.svg" alt="Fallout"
+            class="footer-logo">
+        <p class="copyright">
+            Весь материал на сайте представлен исключительно для ознакомления. <br>
+            Администрация не несет ответственности за размещенные пользователями материалы. Весь контент взят из
+            открытых источников или предоставлен пользователями сайта. <br> Видеофайлы не хранятся на наших серверах.
+        </p>
+    </footer>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="scripts/episode-data.js"></script>
+    <script src="scripts/player.js"></script>
+
+</body>
+
+</html>
